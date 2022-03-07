@@ -32,7 +32,7 @@ class CustomButton extends StatelessWidget {
               Container(),
               Text(
                 title,
-                style: TextStyle(color: colorTitle, fontSize: 16),
+                style: TextStyle(color: colorTitle, fontSize: 20),
               ),
               Icon(
                 Icons.arrow_forward_ios,
