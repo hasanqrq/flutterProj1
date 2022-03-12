@@ -11,6 +11,7 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
           BackgroundImage(),
@@ -18,11 +19,11 @@ class SplashScreen extends StatelessWidget {
             child: Column(
               children: [
                 const SizedBox(
-                  height: 100,
+                  height: 50,
                 ),
                 Center(child: Image.asset("assets/Logo.png")),
                 const SizedBox(
-                  height: 100,
+                  height: 50,
                 ),
                 CustomButton(
                   buttonBackgroundColor: Colors.white,

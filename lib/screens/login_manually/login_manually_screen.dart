@@ -14,8 +14,21 @@ class LoginManually extends StatefulWidget {
 class _LoginManuallyState extends State<LoginManually> {
   var bloc = LoginManuallyBloc();
   @override
+  void initState() {
+    bloc.readMyRememberID().then((value) {
+      {
+        bloc.rememberMyIdChecked != "" ? true : false;
+        bloc.usernameField.text = value;
+        setState(() {});
+      }
+    });
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
         child: Stack(children: [
@@ -30,7 +43,7 @@ class _LoginManuallyState extends State<LoginManually> {
                   child: Image.asset("assets/logotitle.png"),
                 )),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  padding: const EdgeInsets.all(16.0),
                   child: Container(
                       child: myCard(
                     context,
@@ -121,7 +134,11 @@ class _LoginManuallyState extends State<LoginManually> {
                 Checkbox(
                   value: bloc.rememberMyIdChecked,
                   onChanged: (value) {
-                    bloc.rememberMyIdChecked = value!;
+                    bloc.rememberMyIdChecked = value ?? false;
+                    bloc.saveRememberID(bloc.rememberMyIdChecked
+                        ? bloc.usernameField.text
+                        : "");
+
                     setState(() {});
                   },
                 ),

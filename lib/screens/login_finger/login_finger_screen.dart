@@ -18,7 +18,7 @@ class LoginFinger extends StatelessWidget {
             child: Column(
               children: [
                 Container(
-                  height: 200,
+                  height: 100,
                 ),
                 const Text(
                   "Start Using Your",
@@ -43,7 +43,7 @@ class LoginFinger extends StatelessWidget {
                   "assets/fingerpring.png",
                 ),
                 const SizedBox(
-                  height: 300,
+                  height: 70,
                 ),
                 CustomButton(
                     buttonBackgroundColor:
